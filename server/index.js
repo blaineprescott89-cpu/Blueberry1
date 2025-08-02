@@ -30,6 +30,14 @@ app.get('/signup', (req, res) => {
   res.sendFile(resolve(__dirname, '../dist/signup.html'));
 });
 
+// Direct route for login page to bypass caching
+app.get('/login', (req, res) => {
+  res.setHeader('Cache-Control', 'no-cache, no-store, must-revalidate');
+  res.setHeader('Pragma', 'no-cache');
+  res.setHeader('Expires', '0');
+  res.sendFile(resolve(__dirname, '../dist/login.html'));
+});
+
 // Serve the single HTML app for all other routes
 app.get('*', (req, res) => {
   res.sendFile(resolve(__dirname, '../dist/app.html'));
