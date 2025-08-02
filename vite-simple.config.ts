@@ -5,6 +5,10 @@ export default defineConfig({
   plugins: [react()],
   root: 'client-simple',
   build: {
-    outDir: '../dist'
+    outDir: '../dist',
+    emptyOutDir: true
+  },
+  server: {
+    historyApiFallback: true
   }
 })
