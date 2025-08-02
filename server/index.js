@@ -8,8 +8,14 @@ const __dirname = dirname(__filename);
 const app = express();
 app.use(express.json());
 
-// Serve static files from dist
-app.use(express.static(resolve(__dirname, '../dist')));
+// Serve static files from dist with cache control
+app.use(express.static(resolve(__dirname, '../dist'), {
+  setHeaders: (res, path) => {
+    res.setHeader('Cache-Control', 'no-cache, no-store, must-revalidate');
+    res.setHeader('Pragma', 'no-cache');
+    res.setHeader('Expires', '0');
+  }
+}));
 
 // API health check
 app.get('/api/health', (req, res) => {
