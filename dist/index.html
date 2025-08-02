@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>🫐 Blueberry - Law School Application Tracker</title>
+    <script src="https://unpkg.com/react@18/umd/react.development.js"></script>
+    <script src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+  </head>
+  <body>
+    <div id="root"></div>
+    <script type="text/babel">
+      const { useState } = React;
+      
+      function Landing() {
+        return (
+          <div style={{ padding: '40px', textAlign: 'center', fontFamily: 'Arial' }}>
+            <h1>🫐 Blueberry</h1>
+            <h2>Law School Application Tracker</h2>
+            <p>Your comprehensive platform for law school applications</p>
+            <div style={{ margin: '30px 0' }}>
+              <button 
+                onClick={() => window.location.href = '/signup'}
+                style={{ background: '#007bff', color: 'white', padding: '12px 24px', border: 'none', borderRadius: '5px', margin: '0 10px', cursor: 'pointer' }}
+              >
+                Sign Up
+              </button>
+              <button 
+                onClick={() => window.location.href = '/login'}
+                style={{ background: '#28a745', color: 'white', padding: '12px 24px', border: 'none', borderRadius: '5px', margin: '0 10px', cursor: 'pointer' }}
+              >
+                Login
+              </button>
+            </div>
+          </div>
+        );
+      }
+
+      function Signup() {
+        const [email, setEmail] = useState('');
+        const [password, setPassword] = useState('');
+        
+        return (
+          <div style={{ padding: '40px', textAlign: 'center', fontFamily: 'Arial' }}>
+            <h1>🫐 Sign Up for Blueberry</h1>
+            <p>Create your account to start tracking law school applications</p>
+            <div style={{ maxWidth: '400px', margin: '0 auto' }}>
+              <input 
+                type="email" 
+                placeholder="Email" 
+                value={email}
+                onChange={(e) => setEmail(e.target.value)}
+                style={{ width: '100%', padding: '12px', margin: '10px 0', borderRadius: '5px', border: '1px solid #ccc' }}
+              />
+              <input 
+                type="password" 
+                placeholder="Password" 
+                value={password}
+                onChange={(e) => setPassword(e.target.value)}
+                style={{ width: '100%', padding: '12px', margin: '10px 0', borderRadius: '5px', border: '1px solid #ccc' }}
+              />
+              <button 
+                onClick={() => alert('Signup functionality coming soon!')}
+                style={{ width: '100%', padding: '12px', margin: '10px 0', background: '#007bff', color: 'white', border: 'none', borderRadius: '5px', cursor: 'pointer' }}
+              >
+                Create Account
+              </button>
+            </div>
+            <p><button onClick={() => window.location.href = '/'} style={{ background: 'none', border: 'none', color: '#007bff', cursor: 'pointer' }}>Back to Home</button></p>
+          </div>
+        );
+      }
+
+      function Login() {
+        const [email, setEmail] = useState('');
+        const [password, setPassword] = useState('');
+        
+        return (
+          <div style={{ padding: '40px', textAlign: 'center', fontFamily: 'Arial' }}>
+            <h1>🫐 Login to Blueberry</h1>
+            <p>Access your law school application dashboard</p>
+            <div style={{ maxWidth: '400px', margin: '0 auto' }}>
+              <input 
+                type="email" 
+                placeholder="Email" 
+                value={email}
+                onChange={(e) => setEmail(e.target.value)}
+                style={{ width: '100%', padding: '12px', margin: '10px 0', borderRadius: '5px', border: '1px solid #ccc' }}
+              />
+              <input 
+                type="password" 
+                placeholder="Password" 
+                value={password}
+                onChange={(e) => setPassword(e.target.value)}
+                style={{ width: '100%', padding: '12px', margin: '10px 0', borderRadius: '5px', border: '1px solid #ccc' }}
+              />
+              <button 
+                onClick={() => alert('Login functionality coming soon!')}
+                style={{ width: '100%', padding: '12px', margin: '10px 0', background: '#28a745', color: 'white', border: 'none', borderRadius: '5px', cursor: 'pointer' }}
+              >
+                Sign In
+              </button>
+            </div>
+            <p><button onClick={() => window.location.href = '/'} style={{ background: 'none', border: 'none', color: '#007bff', cursor: 'pointer' }}>Back to Home</button></p>
+          </div>
+        );
+      }
+
+      function App() {
+        const path = window.location.pathname;
+        
+        if (path === '/signup') return <Signup />;
+        if (path === '/login') return <Login />;
+        return <Landing />;
+      }
+
+      ReactDOM.render(<App />, document.getElementById('root'));
+    </script>
+  </body>
+</html>
