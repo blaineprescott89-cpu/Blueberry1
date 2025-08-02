@@ -18,7 +18,7 @@ app.get('/api/health', (req, res) => {
 
 // Serve the single HTML app for all routes
 app.get('*', (req, res) => {
-  res.sendFile(resolve(__dirname, '../dist/index.html'));
+  res.sendFile(resolve(__dirname, '../dist/app.html'));
 });
 
 const port = process.env.PORT || 5000;
