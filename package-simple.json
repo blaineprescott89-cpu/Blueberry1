@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "type": "module",
   "scripts": {
-    "build": "echo 'Static build complete'",
+    "build": "mkdir -p dist && echo 'Build complete - using pre-built static files'",
     "start": "node server/index.js"
   },
   "dependencies": {
