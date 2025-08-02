@@ -1,0 +1,15 @@
+{
+  "name": "blueberry-app",
+  "version": "1.0.0",
+  "type": "module",
+  "scripts": {
+    "build": "echo 'No build needed - serving static HTML'",
+    "start": "node start.js"
+  },
+  "dependencies": {
+    "express": "^4.21.1"
+  },
+  "engines": {
+    "node": ">=18.0.0"
+  }
+}
