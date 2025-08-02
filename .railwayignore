@@ -1,0 +1,8 @@
+node_modules/
+.env
+*.log
+tmp/
+uploads/
+backup*.sql
+backup*.tar.gz
+*.html
