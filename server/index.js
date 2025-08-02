@@ -22,7 +22,15 @@ app.get('/api/health', (req, res) => {
   res.json({ status: 'ok', message: 'Blueberry server is running' });
 });
 
-// Serve the single HTML app for all routes
+// Direct route for signup page to bypass caching
+app.get('/signup', (req, res) => {
+  res.setHeader('Cache-Control', 'no-cache, no-store, must-revalidate');
+  res.setHeader('Pragma', 'no-cache');
+  res.setHeader('Expires', '0');
+  res.sendFile(resolve(__dirname, '../dist/signup.html'));
+});
+
+// Serve the single HTML app for all other routes
 app.get('*', (req, res) => {
   res.sendFile(resolve(__dirname, '../dist/app.html'));
 });
