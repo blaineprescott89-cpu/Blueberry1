@@ -8,8 +8,8 @@ const __dirname = dirname(__filename);
 const app = express();
 app.use(express.json());
 
-// Serve static files from dist with cache control
-app.use(express.static(resolve(__dirname, '../dist'), {
+// Serve static files from React build with cache control
+app.use(express.static(resolve(__dirname, '../client/dist'), {
   setHeaders: (res, path) => {
     res.setHeader('Cache-Control', 'no-cache, no-store, must-revalidate');
     res.setHeader('Pragma', 'no-cache');
@@ -181,9 +181,9 @@ app.get('/', (req, res) => {
 </html>`);
 });
 
-// Serve the single HTML app for all other routes
+// Serve the React app for all other routes
 app.get('*', (req, res) => {
-  res.sendFile(resolve(__dirname, '../dist/app.html'));
+  res.sendFile(resolve(__dirname, '../client/dist/index.html'));
 });
 
 const port = process.env.PORT || 5000;
