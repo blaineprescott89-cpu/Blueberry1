@@ -16,13 +16,8 @@ app.get('/api/health', (req, res) => {
   res.json({ status: 'ok', message: 'Blueberry server is running' });
 });
 
-// React app fallback - serve index.html for all non-API routes
+// Serve the single HTML app for all routes
 app.get('*', (req, res) => {
-  // Don't interfere with API routes
-  if (req.path.startsWith('/api')) {
-    return res.status(404).json({ error: 'API route not found' });
-  }
-  
   res.sendFile(resolve(__dirname, '../dist/index.html'));
 });
 
